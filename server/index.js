@@ -9,6 +9,7 @@ const app = express()
 
 const users = require('./routes/users')
 const auth = require('./routes/auth')
+const books = require('./routes/book.route')
 
 if (!process.env.JWT_SECRET) {
     console.log('FATAL ERROR: JWT_SECRET is not defined')
@@ -21,8 +22,9 @@ mongoose.connect('mongodb://localhost/ams') // add db username password
 
 app.use(cors())
 app.use(express.json())
-app.use('/api/users', users)
-app.use('/api/auth', auth)
+app.use('/api/users', users)    //add version
+app.use('/api/auth', auth)  
+app.use('/api/books', books) 
 
 const port = process.env.PORT || 4000
 app.listen(port, () => console.log(`Listening on port ${port}...`))
