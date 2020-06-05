@@ -8,7 +8,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
         <Route
             {...rest}
             render={props => (
-                !!getAccessToken() ? <Component {...props} /> : <Redirect to='/login'/>
+                !!getAccessToken() ? <Component {...props} /> : <Redirect to='/login' />
             )}
         />
     )
@@ -18,8 +18,8 @@ export default () => {
     return (
         <BrowserRouter>
             <Switch>
-                <Redirect exact from='/' to='/login'/>
-                <Route path='/login' component={Login} exact/>
+                <Redirect exact from='/' to='/login' />
+                <Route path='/login' component={Login} exact />
                 {/*<PrivateRoute path='/sales' component={Sales} exact/>*/}
             </Switch>
         </BrowserRouter>
