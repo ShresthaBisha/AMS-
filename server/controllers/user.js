@@ -2,7 +2,7 @@ const express = require('express')
 const bcrypt = require('bcrypt')
 const omit = require('lodash/omit')
 
-const { User, validate } = require('../models/user')
+const { User, validate, validateSearchUser } = require('../models/user')
 
 exports.userCreate = async (req, res) => {
     const { error, value: userReq } = validate(req.body)
@@ -24,8 +24,11 @@ exports.userCreate = async (req, res) => {
 }
 
 exports.userSearch = async (req, res) => {
-    const user = await User.find()
-    res.send(omit(user, ['__v', 'password']))
+    const { error, value: searchReq } = validateSearchUser(req.body)
+    if (error) res.status(400).send(error.details[0].message)
+
+    const users = await User.find(searchReq)
+    res.send(users)
 }
 
 exports.getUserById = async (req, res) => {

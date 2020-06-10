@@ -46,10 +46,11 @@ function validateUser (user) {
         username: Joi.string().min(2).max(50).required(),
         password: Joi.string().min(5).max(255).required(),
         fullName: Joi.string().min(5).max(255).required(),
+        status: Joi.string().valid('INITIAL', 'ACTIVE', 'SUSPEND'),
         groups: Joi.array().items(Joi.string().valid('STUDENT', 'TEACHER')).required()
     }
 
-    return Joi.validate(user, schema)
+    return Joi.validate(user, schema, { stripUnknown: true })
 }
 
 function validateAuthUser (user) {
@@ -58,16 +59,16 @@ function validateAuthUser (user) {
         password: Joi.string().min(5).max(255).required()
     }
 
-    return Joi.validate(user, schema)
+    return Joi.validate(user, schema, { stripUnknown: true })
 }
 
 function validateSearchUser (user) {
     const schema = {
-        status: Joi.array().items(Joi.string().valid('INITIAL', 'ACTIVE', 'SUSPEND')),
+        status: Joi.string().valid('INITIAL', 'ACTIVE', 'SUSPEND'),
         groups: Joi.array().items(Joi.string().valid('STUDENT', 'TEACHER')),
     }
 
-    return Joi.validate(user, schema)
+    return Joi.validate(user, schema, { stripUnknown: true })
 }
 
 exports.User = User
