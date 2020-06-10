@@ -28,7 +28,7 @@ function validateClassroom (classroom) {
         grade: Joi.number().required(),
         section: Joi.string().min(1).max(2).required(),
         description: Joi.string(),
-        teacher: Joi.objectId().required(),
+        teacher: Joi.objectId().required()
     }
 
     return Joi.validate(classroom, schema)
