@@ -6,9 +6,9 @@ const userController = require('../controllers/user')
 
 const router = express.Router()
 
-router.post('/create', userController.userCreate)
-router.post('/search', userController.userSearch)
-// router.get('/:id', userController.user_details)
+router.post('/create', userController.createUser)
+router.post('/search', userController.searchUsers)
+router.get('/read/:id', userController.getUserById)
 // router.put('/:id/update', userController.user_update)
 // router.delete('/:id/delete', userController.user_delete)
 

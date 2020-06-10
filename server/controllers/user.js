@@ -4,7 +4,7 @@ const omit = require('lodash/omit')
 
 const { User, validate, validateSearchUser } = require('../models/user')
 
-exports.userCreate = async (req, res) => {
+exports.createUser = async (req, res) => {
     const { error, value: userReq } = validate(req.body)
     if (error) res.status(400).send(error.details[0].message)
 
@@ -23,7 +23,7 @@ exports.userCreate = async (req, res) => {
     res.send(omit(user.toJSON(), ['__v', 'password']))
 }
 
-exports.userSearch = async (req, res) => {
+exports.searchUsers = async (req, res) => {
     const { error, value: searchReq } = validateSearchUser(req.body)
     if (error) res.status(400).send(error.details[0].message)
 
