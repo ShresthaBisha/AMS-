@@ -23,13 +23,11 @@ exports.createClassroom = async (req, res) => {
     res.send(classroom)
 }
 
-// exports.classroom_list = (req, res) => {
-//     Classroom.find((err, classroom) => {
-//         if (err) return next(err)
-//         res.send(classroom)
-//     })
-// }
-//
+exports.getAllClassrooms = async (req, res) => {
+    const classrooms = await Classroom.find().populate('teacher')
+    res.send(classrooms)
+}
+
 // exports.classroom_details = async (req, res) => {
 //     const classroom = await Classroom.findById(req.params.id)
 //     if (!classroom) return res.status(400).send('Classroom not found')
