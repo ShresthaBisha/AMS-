@@ -2,19 +2,11 @@ const express = require('express')
 const Joi = require('joi')
 const bcrypt = require('bcrypt')
 const omit = require('lodash/omit')
-const { User } = require('../models/user')
 
-function validate (user) {
-    const schema = {
-        username: Joi.string().min(2).max(50).required(),
-        password: Joi.string().min(5).max(255).required()
-    }
+const { User, validateAuthUser } = require('../models/user')
 
-    return Joi.validate(user, schema)
-}
-
-exports.auth_create= async (req, res) => {
-    const { error, value: authReq } = validate(req.body)
+exports.auth_create = async (req, res) => {
+    const { error, value: authReq } = validateAuthUser(req.body)
     if (error) return res.status(400).send(error.details[0].message)
 
     const { username, password } = authReq
