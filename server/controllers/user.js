@@ -23,7 +23,7 @@ exports.userCreate = async (req, res) => {
     res.send(omit(user.toJSON(), ['__v', 'password']))
 }
 
-exports.user_list = async (req, res) => {
+exports.userSearch = async (req, res) => {
     const user = await User.find()
     res.send(omit(user, ['__v', 'password']))
 }

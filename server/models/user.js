@@ -15,7 +15,8 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         minlength: 5,
-        maxlength: 255
+        maxlength: 255,
+        select: false
     },
     fullName: {
         type: String,
@@ -60,6 +61,16 @@ function validateAuthUser (user) {
     return Joi.validate(user, schema)
 }
 
+function validateSearchUser (user) {
+    const schema = {
+        status: Joi.array().items(Joi.string().valid('INITIAL', 'ACTIVE', 'SUSPEND')),
+        groups: Joi.array().items(Joi.string().valid('STUDENT', 'TEACHER')),
+    }
+
+    return Joi.validate(user, schema)
+}
+
 exports.User = User
 exports.validate = validateUser
 exports.validateAuthUser = validateAuthUser
+exports.validateSearchUser = validateSearchUser
