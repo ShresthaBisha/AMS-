@@ -1,4 +1,5 @@
 const Joi = require('joi')
+Joi.objectId = require('joi-objectid')(Joi)
 const mongoose = require('mongoose')
 
 const classroomSchema = new mongoose.Schema({
@@ -27,8 +28,9 @@ function validateClassroom (classroom) {
         grade: Joi.number().required(),
         section: Joi.string().min(1).max(2).required(),
         description: Joi.string(),
-        teacher: Joi.string().required(),
+        teacher: Joi.objectId().required(),
     }
+
     return Joi.validate(classroom, schema)
 }
 
