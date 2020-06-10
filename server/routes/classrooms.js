@@ -1,12 +1,14 @@
-
 const express = require('express')
 const router = express.Router()
 
-const classroom_controller= require('../controllers/classroom')
+const controller = require('../controllers/classroom')
+const auth = require('../middleware/auth')
+const teacher = require('../middleware/teacher')
 
-router.post('/create', classroom_controller.classroom_create);
-router.get('/:id',classroom_controller.classroom_details);
-router.put('/:id/update',classroom_controller.classroom_update);
-router.delete('/:id/delete',classroom_controller.classroom_delete);
-router.get('/', classroom_controller.classroom_list);
+router.post('/create', [auth, teacher], controller.createClassroom)
+router.get('/read', auth, controller.getAllClassrooms)
+router.get('/read/:id', auth, controller.getClassroomById)
+// router.put('/:id/update', classroom_controller.classroom_update)
+// router.delete('/:id/delete', classroom_controller.classroom_delete)
+
 module.exports = router

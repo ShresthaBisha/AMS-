@@ -1,44 +1,38 @@
 const Joi = require('joi')
+Joi.objectId = require('joi-objectid')(Joi)
 const mongoose = require('mongoose')
 
-let classroomSchema = new mongoose.Schema({
+const classroomSchema = new mongoose.Schema({
     grade: {
-        type: String,
-        required: true,
-        minlength: 1,
-        maxlength: 255
+        type: Number,
+        required: true
     },
     section: {
         type: String,
         required: true,
         minlength: 1,
-        maxlength: 255
+        maxlength: 2
     },
-    description: {
-        type: String,
-        required: true,
-        minlength: 1,
-        maxlength: 255
-    },
-    classteacherid: {
-        type: String,
-        required: true,
-        minlength: 1,
-        maxlength: 255
+    description: String,
+    teacher: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
     }
-
 })
+
 const Classroom = mongoose.model('Classroom', classroomSchema)
+
 function validateClassroom (classroom) {
     const schema = {
-        grade: Joi.string().min(1).max(50).required(),
-        section: Joi.string().min(1).max(255).required(),
-        description: Joi.string().min(2).max(255).required(),
-        classteacherid: Joi.string().min(5).max(255).required(),
+        grade: Joi.number().required(),
+        section: Joi.string().min(1).max(2).required(),
+        description: Joi.string(),
+        teacher: Joi.objectId().required()
     }
+
     return Joi.validate(classroom, schema)
 }
+
 exports.Classroom = Classroom
 exports.validate = validateClassroom
-
-//validation required
