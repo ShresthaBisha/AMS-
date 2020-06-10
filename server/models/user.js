@@ -17,20 +17,25 @@ const userSchema = new mongoose.Schema({
         minlength: 5,
         maxlength: 255
     },
+    fullName: {
+        type: String,
+        required: true,
+        minlength: 5,
+        maxlength: 255
+    },
     status: {
         enum: ['INITIAL', 'ACTIVE', 'SUSPEND'],
         type: String,
         default: 'ACTIVE'
     },
     groups: {
-        enums: [{ type: String, enum: ['STUDENT', 'TEACHER','LIBRARIAN','ADMIN'] }],
+        enums: [{ type: String, enum: ['STUDENT', 'TEACHER'] }],
         type: Array,
     }
 })
 
-// Information Expert Principle
 userSchema.methods.generateToken = function () {
-    return jwt.sign(omit(this.toJSON(), ['password', '__v']), process.env.JWT_SECRET)
+    return jwt.sign(omit(this.toJSON(), ['password', '__v', 'fullName']), process.env.JWT_SECRET)
 }
 
 const User = mongoose.model('User', userSchema)
@@ -39,7 +44,8 @@ function validateUser (user) {
     const schema = {
         username: Joi.string().min(2).max(50).required(),
         password: Joi.string().min(5).max(255).required(),
-        groups: Joi.array().items(Joi.string().valid('ADMIN','LIBRARIAN','STUDENT', 'TEACHER'))
+        fullName: Joi.string().min(5).max(255).required(),
+        groups: Joi.array().items(Joi.string().valid('STUDENT', 'TEACHER')).required()
     }
 
     return Joi.validate(user, schema)
