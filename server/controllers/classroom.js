@@ -28,12 +28,13 @@ exports.getAllClassrooms = async (req, res) => {
     res.send(classrooms)
 }
 
-// exports.classroom_details = async (req, res) => {
-//     const classroom = await Classroom.findById(req.params.id)
-//     if (!classroom) return res.status(400).send('Classroom not found')
-//     res.send(classroom)
-// }
-//
+exports.getClassroomById = async (req, res) => {
+    const classroom = await Classroom.findById(req.params.id).populate('teacher')
+    if (!classroom) return res.status(400).send('Classroom with given ID not found')
+
+    res.send(classroom)
+}
+
 // exports.classroom_update = async (req, res) => {
 //     const classroomReq = req.body
 //     //if (error) res.status(400).send(error.details[0].message)
