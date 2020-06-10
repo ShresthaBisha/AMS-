@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "98514e8c-f55b-479d-a1d5-55b0bc4202b2",
+		"_postman_id": "97d71869-c3f8-42d0-a0ad-e9a154bce335",
 		"name": "ams",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -335,6 +335,131 @@
 								"meetings",
 								"5edef69442078c4a3cd12511",
 								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "create user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"stu_002\",\n\t\"password\": \"password\",\n\t\"fullName\": \"Vigneswaran Saahithyan\",\n\t\"status\": \"INITIAL\",\n\t\"groups\": [\"STUDENT\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/users/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"users",
+								"create"
+							]
+						},
+						"description": "status: ('INITIAL', 'ACTIVE', 'SUSPEND') optional\ngroups: ['STUDENT', 'TEACHER']"
+					},
+					"response": []
+				},
+				{
+					"name": "login user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"stu_001\",\n\t\"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/auth",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search users",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdGF0dXMiOiJBQ1RJVkUiLCJncm91cHMiOlsiU1RVREVOVCJdLCJfaWQiOiI1ZWUwN2M0ZGNjMjk5ZTNiZWYyZDQ2MWEiLCJ1c2VybmFtZSI6InN0dV8wMDEiLCJpYXQiOjE1OTE3NzIwMTZ9.BqOjlStyJhE0RXYbt-lkfRRmt_Mq6kC9g4J7z6HMeP0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"status\": \"ACTIVE\",\n\t\"groups\": [\"TEACHER\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/users/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"users",
+								"search"
+							]
+						},
+						"description": "status: ('INITIAL', 'ACTIVE', 'SUSPEND') optional\ngroups: ['STUDENT', 'TEACHER'] optional"
+					},
+					"response": []
+				},
+				{
+					"name": "get user by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/users/read/5ee07bf95a33a13ba25ec2f7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"users",
+								"read",
+								"5ee07bf95a33a13ba25ec2f7"
 							]
 						}
 					},
