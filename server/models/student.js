@@ -14,16 +14,26 @@ const studentSchema = new mongoose.Schema({
     }
 })
 
-function validateStudent (student_classroom) {
+function validateStudent (student) {
     const schema = {
         user: Joi.objectId().required(),
         classroom: Joi.objectId().required()
     }
 
-    return Joi.validate(student_classroom, schema)
+    return Joi.validate(student, schema)
+}
+
+function validateSearch (student) {
+    const schema = {
+        user: Joi.objectId(),
+        classroom: Joi.objectId()
+    }
+
+    return Joi.validate(student, schema)
 }
 
 Student = mongoose.model('Student', studentSchema)
 
 exports.Student = Student
 exports.validate = validateStudent
+exports.validateSearch = validateSearch

@@ -1,6 +1,6 @@
 const express = require('express')
 
-const { Student, validate } = require('../models/student')
+const { Student, validate, validateSearch } = require('../models/student')
 
 exports.createStudent = async (req, res) => {
     const { error, value: studentReq } = validate(req.body)
@@ -19,19 +19,22 @@ exports.createStudent = async (req, res) => {
     res.send(student)
 }
 
-// exports.student_classroom_list=(req,res)=>{
-//     Studentclassroom.find((err,student_classroom)=>{
-//         if(err) return next(err);
-//         res.send(student_classroom)
-//     })
-// };
-//
-// exports.student_classroom_details=async (req,res)=>{
-//     const student_classroom=await Studentclassroom.findById(req.params.id)
-//     if(!student_classroom) return res.status(400).send("Meeting not found")
-//     res.send(student_classroom)
-// };
-//
+exports.search = async (req, res) => {
+    const { error, value: searchReq } = validateSearch(req.body)
+    if (error) return res.status(400).send(error.details[0].message)
+
+    const students = await Student.find(searchReq).populate('user classroom')
+
+    res.send(students)
+}
+
+exports.getStudentById = async (req, res) => {
+    const student = await Student.findById(req.params.id).populate('user classroom')
+    if (!student) return res.status(400).send('Student with given ID not found')
+
+    res.send(student)
+}
+
 // exports.student_classroom_update=async (req,res)=>{
 //     const student_classroomReq=req.body
 //     //if (error) res.status(400).send(error.details[0].message)
