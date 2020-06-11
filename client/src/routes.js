@@ -6,6 +6,9 @@ import Students from "./Students/components/Students";
 import Employee from "./Students/components/Employee";
 import CreateClassroom from "./Classroom/components/CreateClassroom";
 import ListClassroom from "./Classroom/components/ListClassroom";
+import CreateMeeting from "./Meeting/components/CreateMeeting";
+import ListMeeting from "./Meeting/components/ListMeeting";
+
 import { getAccessToken } from "./utils";
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
@@ -32,7 +35,8 @@ export default () => {
         <Route path="/class-room/list" component={ListClassroom} exact />
         <Route path="/students/create" component={ListClassroom} exact />
         <Route path="/students/list" component={ListClassroom} exact />
-        <Route path="/classes/create" component={ListClassroom} exact />
+        <Route path="/meeting/create" component={CreateMeeting} exact />
+        <Route path="/meeting/list" component={ListMeeting} exact />
 
         {/* <PrivateRoute path="/sales" component={Sales} exact /> */}
       </Switch>
