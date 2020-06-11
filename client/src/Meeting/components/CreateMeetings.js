@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 
-class CreateMeeting extends Component {
+class CreateMeetings extends Component {
   render() {
     return (
       <div className="container">
@@ -56,4 +55,4 @@ class CreateMeeting extends Component {
   }
 }
 
-export default CreateMeeting;
+export default CreateMeetings;

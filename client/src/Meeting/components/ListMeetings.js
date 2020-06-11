@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 
-class ListClassroom extends Component {
+class ListMeetings extends Component {
   state = {};
   render() {
     return (
       <div className="container">
         <nav class="navbar navbar-light bg-light">
           <span class="navbar-brand mb-0 h1">
-            <h1>List of Classroom</h1>
+            <h1>List of Meetings</h1>
           </span>
         </nav>
         <br /> <br />
@@ -21,7 +21,7 @@ class ListClassroom extends Component {
                   id="dev-table-filter"
                   data-action="filter"
                   data-filters="#dev-table"
-                  placeholder="search Classroom"
+                  placeholder="Search Meeting"
                 />
               </div>
               <br /> <br />
@@ -29,10 +29,10 @@ class ListClassroom extends Component {
                 <thead>
                   <tr>
                     <th>No.</th>
+                    <th>Classroom ID</th>
                     <th>Teacher ID</th>
-                    <th>Grade</th>
-                    <th>Section</th>
-                    <th>Description</th>
+                    <th>ScheduleInfo</th>
+                    <th>MeetingLink</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -53,4 +53,4 @@ class ListClassroom extends Component {
   }
 }
 
-export default ListClassroom;
+export default ListMeetings;

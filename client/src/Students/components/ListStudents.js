@@ -1,14 +1,12 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 
-class ListMeeting extends Component {
-  state = {};
+class ListStudents extends Component {
   render() {
     return (
       <div className="container">
         <nav class="navbar navbar-light bg-light">
           <span class="navbar-brand mb-0 h1">
-            <h1>List of Meetings</h1>
+            <h1>List of Students</h1>
           </span>
         </nav>
         <br /> <br />
@@ -22,7 +20,7 @@ class ListMeeting extends Component {
                   id="dev-table-filter"
                   data-action="filter"
                   data-filters="#dev-table"
-                  placeholder="Search Meeting"
+                  placeholder="Search Students"
                 />
               </div>
               <br /> <br />
@@ -30,19 +28,15 @@ class ListMeeting extends Component {
                 <thead>
                   <tr>
                     <th>No.</th>
-                    <th>Classroom ID</th>
-                    <th>Teacher ID</th>
-                    <th>ScheduleInfo</th>
-                    <th>MeetingLink</th>
+                    <th>User</th>
+                    <th>Classroom</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td>1</td>
-                    <td>101</td>
-                    <td>8</td>
-                    <td>A</td>
-                    <td>Desc</td>
+                    <td>ABC</td>
+                    <td>....</td>
                   </tr>
                 </tbody>
               </table>
@@ -54,4 +48,4 @@ class ListMeeting extends Component {
   }
 }
 
-export default ListMeeting;
+export default ListStudents;

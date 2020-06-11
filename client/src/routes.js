@@ -4,10 +4,12 @@ import Login from "./Login/components/Login";
 import Books from "./Books/components/Books";
 import Students from "./Students/components/Students";
 import Employee from "./Students/components/Employee";
-import CreateClassroom from "./Classroom/components/CreateClassroom";
-import ListClassroom from "./Classroom/components/ListClassroom";
-import CreateMeeting from "./Meeting/components/CreateMeeting";
-import ListMeeting from "./Meeting/components/ListMeeting";
+import CreateClassrooms from "./Classroom/components/CreateClassroom";
+import ListClassrooms from "./Classroom/components/ListClassroom";
+import CreateMeetings from "./Meeting/components/CreateMeetings";
+import ListMeetings from "./Meeting/components/ListMeetings";
+import AddStudents from "./Students/components/AddStudents";
+import ListStudents from "./Students/components/ListStudents";
 
 import { getAccessToken } from "./utils";
 
@@ -31,12 +33,12 @@ export default () => {
         <Route path="/books" component={Books} exact />
         <Route path="/users/students" component={Students} exact />
         <Route path="/users/employee" component={Employee} exact />
-        <Route path="/class-room/create" component={CreateClassroom} exact />
-        <Route path="/class-room/list" component={ListClassroom} exact />
-        <Route path="/students/create" component={ListClassroom} exact />
-        <Route path="/students/list" component={ListClassroom} exact />
-        <Route path="/meeting/create" component={CreateMeeting} exact />
-        <Route path="/meeting/list" component={ListMeeting} exact />
+        <Route path="/class-room/create" component={CreateClassrooms} exact />
+        <Route path="/class-room/list" component={ListClassrooms} exact />
+        <Route path="/students/create" component={AddStudents} exact />
+        <Route path="/students/list" component={ListStudents} exact />
+        <Route path="/meeting/create" component={CreateMeetings} exact />
+        <Route path="/meeting/list" component={ListMeetings} exact />
 
         {/* <PrivateRoute path="/sales" component={Sales} exact /> */}
       </Switch>
