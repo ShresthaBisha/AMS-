@@ -4,12 +4,7 @@ class AddStudents extends Component {
   render() {
     return (
       <div className="container-fullwidth">
-        {/* <nav class="navbar navbar-light bg-light">
-          <span class="navbar-brand mb-0 h1">
-            <h1>Add Students.</h1>
-          </span>
-        </nav> */}
-        <nav class="navbar-fullwidth navbar-dark bg-dark">
+        <nav class="navbar-fullwidth navbar-fixed-top navbar-dark bg-dark">
           <div class="container d-flex flex-column flex-md-row justify-content-between">
             <a class="py-2" href="#" aria-label="Product">
               <svg
@@ -34,9 +29,6 @@ class AddStudents extends Component {
             <a class="py-2 d-none d-md-inline-block" href="#">
               Tour
             </a>
-            {/* <a class="py-2 d-none d-md-inline-block" href="#">
-              Product
-            </a> */}
             <a class="py-2 d-none d-md-inline-block" href="#">
               Features
             </a>
@@ -49,9 +41,6 @@ class AddStudents extends Component {
             <a class="py-2 d-none d-md-inline-block" href="#">
               Pricing
             </a>
-            {/* <a class="py-2 d-none d-md-inline-block" href="#">
-              Cart
-            </a> */}
           </div>
         </nav>
 

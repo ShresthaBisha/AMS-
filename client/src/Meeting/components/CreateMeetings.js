@@ -4,56 +4,6 @@ class CreateMeetings extends Component {
   render() {
     return (
       <div>
-        {/* <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <a class="navbar-brand" href="#">
-            Navbar
-          </a>
-
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#basicExampleNav"
-            aria-controls="basicExampleNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="basicExampleNav">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="#">
-                  Item1
-                  <span class="sr-only">(current)</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  Item2
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  Item3
-                </a>
-              </li>
-            </ul>
-
-            <form class="form-inline">
-              <div class="md-form my-0">
-                <input
-                  class="form-control mr-sm-2"
-                  type="text"
-                  placeholder="Search"
-                  aria-label="Search"
-                />
-              </div>
-            </form>
-          </div>
-        </nav> */}
-
         <nav class="navbar-fullwidth navbar-dark bg-dark">
           <div class="container d-flex flex-column flex-md-row justify-content-between">
             <a class="py-2" href="#" aria-label="Product">
@@ -79,9 +29,6 @@ class CreateMeetings extends Component {
             <a class="py-2 d-none d-md-inline-block" href="#">
               Tour
             </a>
-            {/* <a class="py-2 d-none d-md-inline-block" href="#">
-              Product
-            </a> */}
             <a class="py-2 d-none d-md-inline-block" href="#">
               Features
             </a>
@@ -94,9 +41,6 @@ class CreateMeetings extends Component {
             <a class="py-2 d-none d-md-inline-block" href="#">
               Pricing
             </a>
-            {/* <a class="py-2 d-none d-md-inline-block" href="#">
-              Cart
-            </a> */}
           </div>
         </nav>
 
@@ -126,12 +70,7 @@ class CreateMeetings extends Component {
                   class="form-control"
                   id="classroomid"
                   placeholder=" class Id"
-                  value=""
-                  required=""
                 />
-                <div class="invalid-feedback">
-                  Valid class number is required.
-                </div>
               </div>
 
               <div class="mb-3">
@@ -141,41 +80,31 @@ class CreateMeetings extends Component {
                   class="form-control"
                   id="Teacherid"
                   placeholder="Teacher Id"
-                  value=""
-                  required=""
                 />
-                <div class="invalid-feedback">
-                  Valid Teacher No. is required.
-                </div>
               </div>
 
               <div class="mb-3">
-                <label for="schoolInfo">schoolInfo</label>
+                <label for="scheduleInfo">ScheduleInfo</label>
                 <input
                   type="text"
                   class="form-control"
                   id="schoolInfo"
-                  placeholder="123 main street"
-                  value=""
-                  required=""
+                  placeholder="ScheduleInfo"
                 />
-                <div class="invalid-feedback">place address</div>
               </div>
 
               <div class="mb-3">
-                <label for="mettinglink">Metting link</label>
+                <label for="meetinglink">Meeting link</label>
                 <input
                   type="text"
                   class="form-control"
                   id="meetinglink"
-                  placeholder="mettinglink"
-                  required=""
+                  placeholder="Paste the link here.."
                 />
-                <div class="invalid-feedback">LInk</div>
               </div>
               <hr class="mb-4" />
               <button class="btn btn-primary btn-lg btn-block" type="submit">
-                Save
+                Create
               </button>
             </div>
           </div>
