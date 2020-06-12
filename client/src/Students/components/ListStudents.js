@@ -54,7 +54,7 @@ class ListStudents extends Component {
           />
           <h2>List of students.</h2>
           <p class="lead">
-            You can type the keyword to search for specific student below.
+            Type the keyword to search for specific student below.
           </p>
         </div>
         <div class="row" style={{ margin: "0% 0% 0% 25%" }}>

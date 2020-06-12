@@ -54,15 +54,13 @@ class CreateMeetings extends Component {
               height="72"
             />
             <h2>Creating Meeting</h2>
-            <p class="lead">
-              Please enter the all the details to create meeting.
-            </p>
+            <p class="lead">Please enter all the details to create meeting.</p>
           </div>
 
           <div class="row">
             <div class="col-md-2 order-md-1 mb-2"></div>
             <div class="col-md-8 order-md-2">
-              <h4 class="mb-3">Create Metting</h4>
+              <h4 class="mb-3">Create Meeting</h4>
               <div class="mb-3">
                 <label for="classroomid">Classroom Id</label>
                 <input
