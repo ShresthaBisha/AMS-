@@ -4,14 +4,14 @@ class ListMeetings extends Component {
   state = {};
   render() {
     return (
-      <div className="container">
-        <nav class="navbar navbar-light bg-light">
+      <div class="container-fullwidth">
+        <nav class="navbar navbar-dark bg-dark">
           <span class="navbar-brand mb-0 h1">
             <h1>List of Meetings</h1>
           </span>
         </nav>
         <br /> <br />
-        <div class="row">
+        <div class="row" style={{ margin: "0% 0% 0% 25%" }}>
           <div class="col-md-6">
             <div class="panel panel-primary">
               <div class="panel-body">
