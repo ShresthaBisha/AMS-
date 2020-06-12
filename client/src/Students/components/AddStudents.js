@@ -43,35 +43,65 @@ class AddStudents extends Component {
             </a>
           </div>
         </nav>
+        <div class="container">
+          <div class="py-5 text-center">
+            <img
+              class="d-block mx-auto mb-4"
+              src="http://www.resetyourbody.com/wp-content/uploads/COMPANY_LOGO/logo-default.png"
+              alt=""
+              width="72"
+              height="72"
+            />
+            <h2>Student Listing</h2>
+            <p class="lead">
+              Please enter all the details of student to register.
+            </p>
+          </div>
 
-        <br />
-        <br />
-        <div className="row" style={{ margin: "0% 0% 0% 25%" }}>
-          <div className="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-            {/* <h1>Create Classroom</h1>
-                <hr />
-                <br />
-                <br /> */}
-            <div className="form-group">
-              <label for="user">User</label>
-              <input type="text" id="user" class="form-control" />
-            </div>
-            <br />
-            <br />
-            <div className="form-group">
-              <label for="classroom">Classroom</label>
-              <input type="text" id="teacherId" class="form-control" />
+          <div class="row">
+            <div class="col-md-2 order-md-1 mb-2"></div>
+            <div class="col-md-8 order-md-2">
+              <h4 class="mb-3">Student Info:</h4>
+              <div class="mb-3">
+                <label for="studentName">Student Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="studentName"
+                  placeholder=" Name"
+                />
+              </div>
+
+              <div class="mb-3">
+                <label for="class">Class</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="class"
+                  placeholder="Class"
+                />
+              </div>
+
+              <hr class="mb-4" />
+              <button class="btn btn-primary btn-lg btn-block" type="submit">
+                Create
+              </button>
             </div>
           </div>
-        </div>
-        {/* <div class="row">
-          <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3"></div>
-        </div> */}
-        <hr />
-        <div class="row" style={{ margin: "0% 0% 0% 25%" }}>
-          <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-            <button class="btn btn-primary">Add Students</button>
-          </div>
+          <footer class="my-5 pt-5 text-muted text-center text-small">
+            <p class="mb-1">© 2020 EverestWalk.PVT.LTD</p>
+            <ul class="list-inline">
+              <li class="list-inline-item">
+                <a href="#">Privacy</a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">Terms</a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">Support</a>
+              </li>
+            </ul>
+          </footer>
         </div>
       </div>
     );
