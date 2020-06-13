@@ -11,3 +11,7 @@
 > npm install
 
 > npm start
+
+## To insert initial data
+
+> node seed
