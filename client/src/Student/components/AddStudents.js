@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { addClassroomAction } from '../actions'
 
-class CreateClassroom extends Component {
+class AddStudents extends Component {
     render () {
         return (
-            <div>
+            <div className="container-fullwidth">
                 <div className="container">
                     <div className="py-5 text-center">
                         <img
@@ -15,47 +13,36 @@ class CreateClassroom extends Component {
                             width="72"
                             height="72"
                         />
-                        <h2>Creating Classroom</h2>
+                        <h2>Student Listing</h2>
                         <p className="lead">
-                            Please enter keyword related with classroom for searching.
+                            Please enter all the details of student to register.
                         </p>
                     </div>
 
                     <div className="row">
                         <div className="col-md-2 order-md-1 mb-2"></div>
                         <div className="col-md-8 order-md-2">
-                            <h4 className="mb-3">
-                                <u>Info for creating Classroom</u>
-                            </h4>
+                            <h4 className="mb-3">Student Info:</h4>
                             <div className="mb-3">
-                                <label for="teacherId">Teacher Id</label>
+                                <label for="studentName">Student Name</label>
                                 <input
                                     type="text"
                                     className="form-control"
-                                    id="teacherId"
-                                    placeholder=" TeacherID"
+                                    id="studentName"
+                                    placeholder=" Name"
                                 />
                             </div>
 
                             <div className="mb-3">
-                                <label for="grade">Grade</label>
+                                <label for="class">Class</label>
                                 <input
                                     type="text"
                                     className="form-control"
-                                    id="grade"
-                                    placeholder="Grade"
+                                    id="class"
+                                    placeholder="Class"
                                 />
                             </div>
 
-                            <div className="mb-3">
-                                <label for="Section">Section</label>
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    id="Section"
-                                    placeholder="Section"
-                                />
-                            </div>
                             <hr className="mb-4"/>
                             <button className="btn btn-primary btn-lg btn-block" type="submit">
                                 Create
@@ -68,4 +55,4 @@ class CreateClassroom extends Component {
     }
 }
 
-export default CreateClassroom
+export default AddStudents

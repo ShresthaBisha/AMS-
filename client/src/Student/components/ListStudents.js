@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class ListClassroom extends Component {
+class ListStudents extends Component {
     state = {}
 
     render () {
@@ -14,8 +14,10 @@ class ListClassroom extends Component {
                         width="72"
                         height="72"
                     />
-                    <h2>List of all classrooms.</h2>
-                    <p className="lead">Search using keyboard for classroom below.</p>
+                    <h2>List of students.</h2>
+                    <p className="lead">
+                        Type the keyword to search for specific student below.
+                    </p>
                 </div>
                 <div className="row" style={{ margin: '0% 0% 0% 25%' }}>
                     <div className="col-md-6">
@@ -27,23 +29,22 @@ class ListClassroom extends Component {
                                     id="dev-table-filter"
                                     data-action="filter"
                                     data-filters="#dev-table"
-                                    placeholder="Search Classroom"
+                                    placeholder="Search Meeting"
                                 />
                             </div>
                             <br/> <br/>
                             <div className="row">
                                 <div className="col-md-2 order-md-1 mb-2"></div>
                                 <div className="col-md-12 order-md-2">
-                                    <h4 className="mb-3">Classrooms' list</h4>
+                                    <h4 className="mb-3">Students' List</h4>
                                 </div>
                             </div>
                             <table className="table table-hover" id="dev-table">
                                 <thead>
                                 <tr>
                                     <th>No.</th>
-                                    <th>Teacher ID</th>
-                                    <th>Grade</th>
-                                    <th>Section</th>
+                                    <th>Name</th>
+                                    <th>Class</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -51,7 +52,6 @@ class ListClassroom extends Component {
                                     <td>1</td>
                                     <td>101</td>
                                     <td>8</td>
-                                    <td>A</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -63,4 +63,4 @@ class ListClassroom extends Component {
     }
 }
 
-export default ListClassroom
+export default ListStudents

@@ -5,8 +5,6 @@ import { getAccessToken } from '../../utils'
 import { login } from '../actions'
 import '../static/css/styles'
 
-const defaultLocation = '/class-room/list'
-
 const Login = props => {
     const dispatch = useDispatch()
     const { loginState, loginError } = props.loginReducer
@@ -14,7 +12,7 @@ const Login = props => {
 
     useState(() => {
         if (getAccessToken())
-            props.history.push(defaultLocation)
+            props.history.push('/')
     }, [])
 
     const _login = async () => {
@@ -25,7 +23,7 @@ const Login = props => {
         // }
 
         localStorage.setItem('user', JSON.stringify({ id: '001', token: 'token1' }))
-        props.history.push()
+        props.history.push('/')
     }
 
     const handler = (me, value) => {
