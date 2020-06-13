@@ -28,19 +28,18 @@ export default () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Redirect exact from="/" to="/login" />
-        <Route path="/users/login" component={Login} exact />
-        <Route path="/books" component={Books} exact />
-        <Route path="/users/students" component={Students} exact />
-        <Route path="/users/employee" component={Employee} exact />
-        <Route path="/class-room/create" component={CreateClassrooms} exact />
-        <Route path="/class-room/list" component={ListClassrooms} exact />
-        <Route path="/students/create" component={AddStudents} exact />
-        <Route path="/students/list" component={ListStudents} exact />
-        <Route path="/meeting/create" component={CreateMeetings} exact />
-        <Route path="/meeting/list" component={ListMeetings} exact />
+        <Redirect exact from="/" to="/class-room/list" />
+        <Route path="/login" component={Login} exact />
+        {/*<Route path="/books" component={Books} exact />*/}
+        {/*<Route path="/users/students" component={Students} exact />*/}
+        {/*<Route path="/users/employee" component={Employee} exact />*/}
 
-        {/* <PrivateRoute path="/sales" component={Sales} exact /> */}
+        <PrivateRoute path="/class-room/create" component={CreateClassrooms} exact />
+        <PrivateRoute path="/class-room/list" component={ListClassrooms} exact />
+        <PrivateRoute path="/students/create" component={AddStudents} exact />
+        <PrivateRoute path="/students/list" component={ListStudents} exact />
+        <PrivateRoute path="/meeting/create" component={CreateMeetings} exact />
+        <PrivateRoute path="/meeting/list" component={ListMeetings} exact />
       </Switch>
     </BrowserRouter>
   );
