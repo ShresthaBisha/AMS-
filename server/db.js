@@ -17,7 +17,7 @@ const {
 */
 const url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}?authSource=admin`;
 
-exports.connectToDatabase =mongoose.connect(url, options).then( function() {
+exports.connectToDatabase =mongoose.connect(url).then( function() {
   console.log('MongoDB is connected');
 })
   .catch( function(err) {
