@@ -15,7 +15,7 @@ const {
     connectTimeoutMS: 10000,
   };
 */
-const url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}?authSource=admin`;
+const url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}`;
 
 exports.connectToDatabase =mongoose.connect(url).then( function() {
   console.log('MongoDB is connected');
