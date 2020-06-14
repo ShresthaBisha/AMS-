@@ -16,7 +16,7 @@ const {
   };
 */
 //const url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}?authSource=admin`;
-const url = `mongodb://ams:ABCDabcd1234@172.19.0.3:27017/amsdb`
+const url = `mongodb://ams:ABCDabcd1234@172.19.0.3:27017/ams`
 exports.connectToDatabase =mongoose.connect(url).then( function() {
   console.log('MongoDB is connected');
 })
