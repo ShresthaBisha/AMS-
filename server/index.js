@@ -12,15 +12,17 @@ const classrooms = require('./routes/classrooms')
 const meetings = require('./routes/meetings')
 const students = require('./routes/students')
 const lectures = require('./routes/lectures')
+const databases =require('./db')
 if (!process.env.JWT_SECRET) {
     console.log('FATAL ERROR: JWT_SECRET is not defined')
     process.exist(1) // 0 means success anything else failure
 }
-
+databases.connectToDatabase
+/*
 mongoose.connect('mongodb://localhost/ams') //:TODO add db username password
     .then(() => console.log('Connected to MongoDB...'))
     .catch(err => console.error('Could not connect to MongoDB...'))
-
+*/
 app.use(cors())
 app.use(express.json())
 app.use('/api/users', users) //:TODO add version
