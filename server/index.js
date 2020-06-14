@@ -11,7 +11,7 @@ const books = require('./routes/books')
 const classrooms = require('./routes/classrooms')
 const meetings = require('./routes/meetings')
 const students = require('./routes/students')
-
+const lectures = require('./routes/lectures')
 if (!process.env.JWT_SECRET) {
     console.log('FATAL ERROR: JWT_SECRET is not defined')
     process.exist(1) // 0 means success anything else failure
@@ -29,6 +29,6 @@ app.use('/api/books', books)
 app.use('/api/classrooms', classrooms)
 app.use('/api/meetings', meetings)
 app.use('/api/students', students)
-
+app.use('/api/lectures', lectures)
 const port = process.env.PORT || 4000
 app.listen(port, () => console.log(`Listening on port ${port}...`))

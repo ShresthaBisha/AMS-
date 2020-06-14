@@ -2,23 +2,24 @@ const Joi = require('joi')
 const mongoose = require('mongoose')
 
 let meetingSchema = new mongoose.Schema({
-    classroomid: {
-        type: String,
-        required: true,
-        minlength: 1,
-        maxlength: 255
+    classroom: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Classroom',
+        required: true
     },
-    teacherid: {
-        type: String,
-        required: true,
-        minlength: 1,
-        maxlength: 255
+    lecture: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Lecture',
+        required: true
+    },
+    teacher: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
     },
     scheduleinfo: {
-        type: String,
-        required: true,
-        minlength: 1,
-        maxlength: 255
+        type: Array,
+        required: true
     },
     link: {
         type: String,
@@ -31,9 +32,10 @@ let meetingSchema = new mongoose.Schema({
 const Meeting = mongoose.model('Meeting', meetingSchema)
 function validateMeeting (meeting) {
     const schema = {
-        classroomid: Joi.string().min(1).max(50).required(),
-        teacherid: Joi.string().min(1).max(255).required(),
-        scheduleinfo: Joi.string().min(2).max(255).required(),
+        classroom: Joi.objectId().required(),
+        lecture: Joi.objectId().required(),
+        teacher: Joi.objectId().required(),
+        scheduleinfo: Joi.array().required(),
         link: Joi.string().min(5).max(255).required(),
     }
     return Joi.validate(meeting, schema)

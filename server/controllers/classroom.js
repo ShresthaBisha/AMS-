@@ -14,8 +14,8 @@ exports.createClassroom = async (req, res) => {
     if (classroom)
         return res.status(400).send(`Classroom ${grade}-${section} already exists`)
 
-    if (!getArr(classroom, 'teacher.groups').includes('TEACHER'))
-        return res.status(400).send(`This is not a valid user`)
+    //if (!getArr(classroom, 'teacher.groups').includes('TEACHER'))
+        //return res.status(400).send(`This is not a valid user`)
 
     classroom = new Classroom(classroomReq)
     await classroom.save()
