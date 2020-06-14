@@ -30,5 +30,5 @@ app.use('/api/classrooms', classrooms)
 app.use('/api/meetings', meetings)
 app.use('/api/students', students)
 app.use('/api/lectures', lectures)
-const port = process.env.PORT || 4000
+const port = process.env.PORT || 8080
 app.listen(port, () => console.log(`Listening on port ${port}...`))
