@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, connect } from 'react-redux'
 import MyInput from 'my-input-react'
+import { getAccessToken } from '../../utils'
 import { login } from '../actions'
 import '../static/css/styles'
 
@@ -9,12 +10,20 @@ const Login = props => {
     const { loginState, loginError } = props.loginReducer
     const [localStore, setLocalStore] = useState({})
 
-    const _login = async () => {
-        const res = await dispatch(login(localStore))
+    useState(() => {
+        if (getAccessToken())
+            props.history.push('/')
+    }, [])
 
-        if (res.value.status === 200) {
-            // props.history.push('/dashboard')
-        }
+    const _login = async () => {
+        // const res = await dispatch(login(localStore))
+        //
+        // if (res.value.status === 200) {
+        //     // props.history.push('/dashboard')
+        // }
+
+        localStorage.setItem('user', JSON.stringify({ id: '001', token: 'token1' }))
+        props.history.push('/')
     }
 
     const handler = (me, value) => {

@@ -1,0 +1,5 @@
+{
+    "TEACHER": [
+        "VIEW_STUDENT", "CREATE_STUDENT", "LIST_STUDENTS"
+    ]
+}
