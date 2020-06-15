@@ -30,7 +30,7 @@ export function updateClassroomById () {
 export function deleteClassroom () {
     return function (dispactch) {
         dispactch({
-            type: 'DELETE_CLASSROOM_BY_ID',
+            type: 'DELETE_CLASSROOM',
             payload: source.deleteClassroom(),
         })
     }
