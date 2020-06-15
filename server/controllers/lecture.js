@@ -9,12 +9,15 @@ exports.createLecture = async (req, res) => {
 
     const { subject, classroom } = lectureReq
 
-    let lecture = await Lecture.findOne({ subject, classroom }).populate(['classroom','teacher'])
+    let lecture = await Lecture.findOne({ subject, classroom }).populate(['classroom', 'teacher'])
 
     if (lecture)
         return res.status(400).send(` ${classroom}-${subject} already exists`)
-//:TODO Change classroom ID to grade-section
-//:TODO Check if the teacherid is a TEACHER user
+
+    //:TODO Change classroom ID to grade-section
+
+    //:TODO Check if the teacherId is a TEACHER user
+
     lecture = new Lecture(lectureReq)
     await lecture.save()
 
@@ -22,7 +25,7 @@ exports.createLecture = async (req, res) => {
 }
 
 exports.getAllLectures = async (req, res) => {
-    const lectures = await Lecture.find().populate(['classroom','teacher'])
+    const lectures = await Lecture.find().populate(['classroom', 'teacher'])
     res.send(lectures)
 }
 
