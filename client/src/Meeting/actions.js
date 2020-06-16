@@ -19,11 +19,11 @@ export function getMeetingById () {
     }
 }
 
-export function updateMeetingById () {
+export function updateMeeting () {
     return function (dispactch) {
         dispactch({
-            type: 'UPDATE_MEETING_BY_ID',
-            payload: source.updateMeetingById(),
+            type: 'UPDATE_MEETING',
+            payload: source.updateMeeting(),
         })
     }
 }
@@ -40,7 +40,7 @@ export function deleteMeeting () {
 export function getAllMeeting () {
     return function (dispactch) {
         dispactch({
-            type: 'GET_ALL_MEETING_BY_ID',
+            type: 'GET_ALL_MEETING',
             payload: source.getAllMeeting(),
         })
     }

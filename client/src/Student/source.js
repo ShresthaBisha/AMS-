@@ -23,5 +23,5 @@ export const searchStudent = auth => {
 }
 
 export const getStudentById = auth => {
-    return request.put('users/read/5ee07bf95a33a13ba25ec2f7', auth)
+    return request.get('users/read/5ee07bf95a33a13ba25ec2f7', auth)
 }

@@ -18,11 +18,11 @@ export function getClassroomById () {
     }
 }
 
-export function updateClassroomById () {
+export function updateClassroom () {
     return function (dispactch) {
         dispactch({
-            type: 'UPDATE_CLASSROOM_BY_ID',
-            payload: source.updateClassroomById(),
+            type: 'UPDATE_CLASSROOM',
+            payload: source.updateClassroom(),
         })
     }
 }
@@ -39,7 +39,7 @@ export function deleteClassroom () {
 export function getAllClassroom () {
     return function (dispactch) {
         dispactch({
-            type: 'GET_ALL_CLASSROOM_BY_ID',
+            type: 'GET_ALL_CLASSROOM',
             payload: source.getAllClassroom(),
         })
     }

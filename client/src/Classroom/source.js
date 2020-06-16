@@ -8,7 +8,7 @@ export const getClassroomById = auth => {
     return request.get('classrooms/5ededf8815518341543fffe8', auth)
 }
 
-export const updateClassroomById = auth => {
+export const updateClassroom = auth => {
     return request.put('classrooms/5edeee65807c6725682d190d/update', auth)
 }
 
