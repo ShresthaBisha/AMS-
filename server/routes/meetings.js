@@ -1,11 +1,14 @@
 const express = require('express')
 const router = express.Router()
 
-const meeting_controller = require('../controllers/meeting')
+const controller = require('../controllers/meeting')
+const auth = require('../middleware/auth')
+const teacher = require('../middleware/teacher')
 
-router.post('/create', meeting_controller.meeting_create)
-router.get('/:id', meeting_controller.meeting_details)
-router.put('/:id/update', meeting_controller.meeting_update)
-router.delete('/:id/delete', meeting_controller.meeting_delete)
-router.get('/', meeting_controller.meeting_list)
+router.post('/create', [auth, teacher], controller.createMeeting)
+router.get('/read/:id', auth , controller.getMeetingById)
+//router.put('/:id/update', controller.meeting_update)
+//router.delete('/:id/delete', controller.meeting_delete)
+router.get('/read', [auth, teacher], controller.getAllMeetings)
+
 module.exports = router

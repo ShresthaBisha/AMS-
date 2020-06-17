@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "97d71869-c3f8-42d0-a0ad-e9a154bce335",
+		"_postman_id": "98514e8c-f55b-479d-a1d5-55b0bc4202b2",
 		"name": "ams",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -221,7 +221,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"classroomid\":\"test\",\r\n    \"teacherid\":\"test\",\r\n    \"scheduleinfo\":\"test\",\r\n    \"link\":\"testing\"\r\n}",
+							"raw": "{\r\n    \"classroom\":\"5ee454d1e777062dd82ba898\",\r\n    \"lecture\":\"5ee45bc1d72bbc24389eda44\",\r\n    \"teacher\":\"5ee458ff00fe0e32b8e2f4c8\",\r\n    \"scheduleinfo\": [\"2020/10/1\", \"10:00 AM\",\"11:00 AM\"],\r\n    \"link\":\"testing\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -250,7 +250,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:4000/api/meetings/",
+							"raw": "http://localhost:4000/api/meetings/read",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -259,7 +259,7 @@
 							"path": [
 								"api",
 								"meetings",
-								""
+								"read"
 							]
 						}
 					},
@@ -344,16 +344,22 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "users",
+			"name": "lecture",
 			"item": [
 				{
-					"name": "create user",
+					"name": "Create a lecture",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdGF0dXMiOiJBQ1RJVkUiLCJncm91cHMiOlsiVEVBQ0hFUiJdLCJfaWQiOiI1ZWU0M2Q4OGNiNDk2YjM1ZGM3MmZiZDkiLCJ1c2VybmFtZSI6InRlYV8wMDEiLCJpYXQiOjE1OTIwMTY0MTB9.Q_B40VUbK9WoXe_6hZA7DXlAp1j4GFQRGrvE42XhcyE",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"username\": \"stu_002\",\n\t\"password\": \"password\",\n\t\"fullName\": \"Vigneswaran Saahithyan\",\n\t\"status\": \"INITIAL\",\n\t\"groups\": [\"STUDENT\"]\n}",
+							"raw": "{\r\n    \"subject\":\"Science\",\r\n    \"classroom\":\"5ee454d1e777062dd82ba898\",\r\n    \"teacher\":\"5ee458ff00fe0e32b8e2f4c8\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -361,7 +367,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:4000/api/users/create",
+							"raw": "http://localhost:4000/api/lectures/create",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -369,57 +375,83 @@
 							"port": "4000",
 							"path": [
 								"api",
-								"users",
+								"lectures",
 								"create"
-							]
-						},
-						"description": "status: ('INITIAL', 'ACTIVE', 'SUSPEND') optional\ngroups: ['STUDENT', 'TEACHER']"
-					},
-					"response": []
-				},
-				{
-					"name": "login user",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"username\": \"stu_001\",\n\t\"password\": \"password\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:4000/api/auth",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4000",
-							"path": [
-								"api",
-								"auth"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "search users",
+					"name": "Get all lectures",
 					"request": {
-						"method": "POST",
+						"method": "GET",
 						"header": [
 							{
 								"key": "token",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdGF0dXMiOiJBQ1RJVkUiLCJncm91cHMiOlsiU1RVREVOVCJdLCJfaWQiOiI1ZWUwN2M0ZGNjMjk5ZTNiZWYyZDQ2MWEiLCJ1c2VybmFtZSI6InN0dV8wMDEiLCJpYXQiOjE1OTE3NzIwMTZ9.BqOjlStyJhE0RXYbt-lkfRRmt_Mq6kC9g4J7z6HMeP0",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdGF0dXMiOiJBQ1RJVkUiLCJncm91cHMiOlsiVEVBQ0hFUiJdLCJfaWQiOiI1ZWU0NThmZDAwZmUwZTMyYjhlMmY0YzciLCJ1c2VybmFtZSI6InRlYV8wMDEiLCJpYXQiOjE1OTIwMjM0Njh9.tZLJfCp1ZfHF8zA5kYbILMAocd6Q0euuLwKC3rrn18M",
 								"type": "text"
 							}
 						],
+						"url": {
+							"raw": "http://localhost:4000/api/lectures/read",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"lectures",
+								"read"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a lecture details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdGF0dXMiOiJBQ1RJVkUiLCJncm91cHMiOlsiVEVBQ0hFUiJdLCJfaWQiOiI1ZWU0NThmZDAwZmUwZTMyYjhlMmY0YzciLCJ1c2VybmFtZSI6InRlYV8wMDEiLCJpYXQiOjE1OTIwMjQyNjh9.AXwjyaeBXHuITtZ1z5A8Md66qmu6n9eK26JoD5zI-mk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/lectures/read/5ee45bc1d72bbc24389eda44/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"lectures",
+								"read",
+								"5ee45bc1d72bbc24389eda44",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "Create an authentication",
+					"request": {
+						"method": "POST",
+						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"status\": \"ACTIVE\",\n\t\"groups\": [\"TEACHER\"]\n}",
+							"raw": "{\r\n    \"username\":\"tea_001\",\r\n    \"password\":\"password\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -427,7 +459,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:4000/api/users/search",
+							"raw": "http://localhost:4000/api/auth/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -435,31 +467,8 @@
 							"port": "4000",
 							"path": [
 								"api",
-								"users",
-								"search"
-							]
-						},
-						"description": "status: ('INITIAL', 'ACTIVE', 'SUSPEND') optional\ngroups: ['STUDENT', 'TEACHER'] optional"
-					},
-					"response": []
-				},
-				{
-					"name": "get user by id",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:4000/api/users/read/5ee07bf95a33a13ba25ec2f7",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4000",
-							"path": [
-								"api",
-								"users",
-								"read",
-								"5ee07bf95a33a13ba25ec2f7"
+								"auth",
+								""
 							]
 						}
 					},
