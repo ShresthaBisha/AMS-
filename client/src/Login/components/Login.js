@@ -16,14 +16,11 @@ const Login = props => {
     }, [])
 
     const _login = async () => {
-        // const res = await dispatch(login(localStore))
-        //
-        // if (res.value.status === 200) {
-        //     // props.history.push('/dashboard')
-        // }
+        const res = await dispatch(login(localStore))
 
-        localStorage.setItem('user', JSON.stringify({ id: '001', token: 'token1' }))
-        props.history.push('/')
+        if (res.value.status === 200) {
+            props.history.push('/')
+        }
     }
 
     const handler = (me, value) => {

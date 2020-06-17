@@ -1,6 +1,24 @@
 import React, { Component } from 'react'
+import MyInput from 'my-input-react'
 
 class CreateMeetings extends Component {
+
+    state = {
+        localStore: {}
+    }
+
+    handler (me, value) {
+        const localStore = {...this.state.localStore}
+        localStore[me] = value
+
+        this.setState({localStore})
+    }
+
+    createMeeting () {
+        console.log('log meeting', this.state.localStore)
+    }
+
+
     render () {
         return (
             <div>
@@ -20,50 +38,46 @@ class CreateMeetings extends Component {
                     <div className="row">
                         <div className="col-md-2 order-md-1 mb-2"></div>
                         <div className="col-md-8 order-md-2">
-                            <h4 className="mb-3">Create Meeting</h4>
-                            <div className="mb-3">
-                                <label for="classroomid">Classroom Id</label>
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    id="classroomid"
-                                    placeholder=" class Id"
-                                />
-                            </div>
+                            <h4 className="mb-3">
+                                <u>Details for creating Meeting</u>
+                            </h4>
+                            <br/>
+                            <label htmlFor="classroomid">Classroom ID</label>
+                            <MyInput
+                                me='classroomid'
+                                handler={this.handler.bind(this)}
+                                placeHolder='Enter Classroom ID'
+                                className="form-control mb-3"/>
 
-                            <div className="mb-3">
-                                <label for="Teacherid">Teacher Id</label>
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    id="Teacherid"
-                                    placeholder="Teacher Id"
-                                />
-                            </div>
+                            <label htmlFor="teacherid">Teacher ID</label>
+                            <MyInput
+                                me='teacherid'
+                                handler={this.handler.bind(this)}
+                                placeHolder='Enter Teacher ID'
+                                className="form-control mb-3"/>
 
-                            <div className="mb-3">
-                                <label for="scheduleInfo">ScheduleInfo</label>
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    id="schoolInfo"
-                                    placeholder="ScheduleInfo"
-                                />
-                            </div>
+                            <label htmlFor="scheduleinfo">Schedule</label>
+                            <MyInput
+                                me='scheduleinfo'
+                                handler={this.handler.bind(this)}
+                                placeHolder='Enter schedule'
+                                className="form-control mb-3"/>
 
-                            <div className="mb-3">
-                                <label for="meetinglink">Meeting link</label>
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    id="meetinglink"
-                                    placeholder="Paste the link here.."
-                                />
-                            </div>
-                            <hr className="mb-4"/>
-                            <button className="btn btn-primary btn-lg btn-block" type="submit">
+                            <label htmlFor="meetinglink">Meeting Link</label>
+                            <MyInput
+                                me='meetinglink'
+                                handler={this.handler.bind(this)}
+                                placeHolder='Meeting link'
+                                className="form-control mb-3"/>
+
+                            <button
+                                className="btn btn-primary btn-lg btn-block mb-4"
+                                type="submit"
+                                onClick={this.createMeeting.bind(this)}>
                                 Create
                             </button>
+
+                            <hr className="mb-4"/>
                         </div>
                     </div>
 

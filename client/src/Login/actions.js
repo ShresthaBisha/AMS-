@@ -8,6 +8,15 @@ export function login (auth) {
     }
 }
 
+export function setUser (user) {
+    return function (dispatch) {
+        dispatch({
+            type: 'SET_USER',
+            payload: user
+        })
+    }
+}
+
 //export function login (auth) {
 //     return function (dispatch) {
 //         dispatch({

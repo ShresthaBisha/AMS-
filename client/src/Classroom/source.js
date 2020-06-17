@@ -1,12 +1,21 @@
-import request from "../request";
+import request from '../request'
 
-const mapStateToProps = (state) => {
-  return JSON.stringify(this.state);
-};
+export const addClassroom = auth => {
+    return request.post('classrooms/create', auth)
+}
 
-export const addClassroom = () => {
-  return request.post(
-    "http://dummy.restapiexample.com/api/v1/create",
-    mapStateToProps
-  );
-};
+export const getClassroomById = auth => {
+    return request.get('classrooms/5ededf8815518341543fffe8', auth)
+}
+
+export const updateClassroom = auth => {
+    return request.put('classrooms/5edeee65807c6725682d190d/update', auth)
+}
+
+export const deleteClassroom = auth => {
+    return request.delete('classrooms/5edeee65807c6725682d190d/delete', auth)
+}
+
+export const getAllClassroom = auth => {
+    return request.get('classrooms/', auth)
+}

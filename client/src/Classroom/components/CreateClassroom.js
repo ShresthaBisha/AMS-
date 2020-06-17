@@ -1,9 +1,29 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addClassroomAction } from '../actions'
+import MyInput from 'my-input-react'
 
 class CreateClassroom extends Component {
+
+    state = {
+        localStore: {}
+    }
+
+    handler (me, value) {
+        const localStore = { ...this.state.localStore }
+        localStore[me] = value
+
+        this.setState({ localStore })
+    }
+
+    createClassroom () {
+        console.log('log classroom', this.state.localStore)
+        // fire api call
+    }
+
     render () {
+        const { localStore } = this.state
+
         return (
             <div>
                 <div className="container">
@@ -17,7 +37,7 @@ class CreateClassroom extends Component {
                         />
                         <h2>Creating Classroom</h2>
                         <p className="lead">
-                            Please enter keyword related with classroom for searching.
+
                         </p>
                     </div>
 
@@ -27,39 +47,44 @@ class CreateClassroom extends Component {
                             <h4 className="mb-3">
                                 <u>Info for creating Classroom</u>
                             </h4>
-                            <div className="mb-3">
-                                <label for="teacherId">Teacher Id</label>
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    id="teacherId"
-                                    placeholder=" TeacherID"
-                                />
-                            </div>
+                            <br/>
+                            <label htmlFor="grade">Grade</label>
+                            <MyInput
+                                me='grade'
+                                handler={this.handler.bind(this)}
+                                placeHolder='Enter the grade'
+                                className="form-control mb-3"/>
 
-                            <div className="mb-3">
-                                <label for="grade">Grade</label>
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    id="grade"
-                                    placeholder="Grade"
-                                />
-                            </div>
+                            <label htmlFor="section">Section</label>
+                            <MyInput
+                                me='section'
+                                handler={this.handler.bind(this)}
+                                placeHolder='Enter Section'
+                                className="form-control mb-3"/>
 
-                            <div className="mb-3">
-                                <label for="Section">Section</label>
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    id="Section"
-                                    placeholder="Section"
-                                />
-                            </div>
-                            <hr className="mb-4"/>
-                            <button className="btn btn-primary btn-lg btn-block" type="submit">
+                            <label htmlFor="description">Description</label>
+                            <MyInput
+                                me='description'
+                                handler={this.handler.bind(this)}
+                                placeHolder='Description'
+                                className="form-control mb-3"/>
+
+                            <label htmlFor="teacherid">Teacher ID</label>
+                            <MyInput
+                                me='teacherid'
+                                handler={this.handler.bind(this)}
+                                placeHolder='Enter Teacher ID'
+                                className="form-control mb-3"/>
+
+
+                            <button
+                                className="btn btn-primary btn-lg btn-block mb-4"
+                                type="submit"
+                                onClick={this.createClassroom.bind(this)}>
                                 Create
                             </button>
+
+                            <hr className="mb-4"/>
                         </div>
                     </div>
                 </div>

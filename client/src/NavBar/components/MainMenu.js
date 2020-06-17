@@ -1,7 +1,12 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { get } from 'lodash'
+import { getPermissions } from '../../utils'
+import { useDispatch } from 'react-redux'
 
 const MainMenu = () => {
+    const dispatch = useDispatch()
+
     const _logout = () => {
         localStorage.clear()
     }
@@ -30,16 +35,23 @@ const MainMenu = () => {
                             d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/>
                     </svg>
                 </NavLink>
-                <NavLink className="py-2 d-none d-md-inline-block" to="/student">
-                    Students
-                </NavLink>
-                <NavLink className="py-2 d-none d-md-inline-block" to="/class-room">
-                    Class Rooms
-                </NavLink>
-                <NavLink className="py-2 d-none d-md-inline-block" to="/meeting">
-                    Meetings
-                </NavLink>
-                <NavLink className="py-2 d-none d-md-inline-block" to='/login' onClick={_logout}>
+
+                {
+                    Object.values(getPermissions()).map(permission => {
+                        return (
+                            <NavLink
+                                className="py-2 d-none d-md-inline-block"
+                                to={get(permission, 'url')}>
+                                {get(permission, 'name')}
+                            </NavLink>
+                        )
+                    })
+                }
+
+                <NavLink
+                    className="py-2 d-none d-md-inline-block"
+                    to='/login'
+                    onClick={_logout}>
                     Logout
                 </NavLink>
             </div>
