@@ -19,11 +19,8 @@ const Login = props => {
         const res = await dispatch(login(localStore))
 
         if (res.value.status === 200) {
-            props.history.push('/dashboard')
+            props.history.push('/')
         }
-
-        // localStorage.setItem('user', JSON.stringify({ id: '001', token: 'token1' }))
-        // props.history.push('/')
     }
 
     const handler = (me, value) => {

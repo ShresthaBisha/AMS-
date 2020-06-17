@@ -16,11 +16,8 @@ const getAccessToken = () => get(getUser(), 'token')
 
 const getGroups = () => getArr(getUser(), 'groups')
 
-const getPermissions = () => {
-    const groups = getGroups()
-    const userPermissions = groups.map(group => getArr(permissons, group))
-
-    return uniq(flatten(userPermissions))
+const getPermissions = (group = get(getGroups(), '0')) => {
+    return get(permissons, group)
 }
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
