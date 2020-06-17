@@ -1,6 +1,24 @@
 import React, { Component } from 'react'
+import MyInput from 'my-input-react'
 
 class AddStudents extends Component {
+
+    state = {
+        localStore: {}
+
+    }
+
+    handler (me, value) {
+        const localStore = { ...this.state.localStore }
+        localStore[me] = value
+
+        this.setState({ localStore })
+    }
+
+    createStudent () {
+        console.log('log student', this.state.localStore)
+    }
+
     render () {
         return (
             <div className="container-fullwidth">
@@ -13,7 +31,7 @@ class AddStudents extends Component {
                             width="72"
                             height="72"
                         />
-                        <h2>Student Listing</h2>
+                        <h2>Registering Students</h2>
                         <p className="lead">
                             Please enter all the details of student to register.
                         </p>
@@ -23,28 +41,26 @@ class AddStudents extends Component {
                         <div className="col-md-2 order-md-1 mb-2"></div>
                         <div className="col-md-8 order-md-2">
                             <h4 className="mb-3">Student Info:</h4>
-                            <div className="mb-3">
-                                <label for="studentName">Student Name</label>
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    id="studentName"
-                                    placeholder=" Name"
-                                />
-                            </div>
+                            <br/>
+                            <label htmlFor="studentname">Student Name</label>
+                            <MyInput
+                                me='studentname'
+                                handler={this.handler.bind(this)}
+                                placeHolder='Enter name of student'
+                                className="form-control mb-3"/>
 
-                            <div className="mb-3">
-                                <label for="class">Class</label>
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    id="class"
-                                    placeholder="Class"
-                                />
-                            </div>
+                            <label htmlFor="grade">Grade</label>
+                            <MyInput
+                                me='grade'
+                                handler={this.handler.bind(this)}
+                                placeHolder='Enter grade'
+                                className="form-control mb-3"/>
 
                             <hr className="mb-4"/>
-                            <button className="btn btn-primary btn-lg btn-block" type="submit">
+                            <button
+                                className="btn btn-primary btn-lg btn-block mb-4"
+                                type="submit"
+                                onClick={this.createStudent.bind(this)}>
                                 Create
                             </button>
                         </div>
