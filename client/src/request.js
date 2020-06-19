@@ -3,7 +3,7 @@ import { getAccessToken } from './utils'
 
 const accessToken = getAccessToken()
 const url = {
-    base: 'http://localhost:4000/api/',
+    base: 'https://api.ams.everestwalk.com/api/',
 }
 
 const headers = {
