@@ -13,7 +13,6 @@ import Login from './Login/components/Login'
 import MainMenu from './NavBar/components/MainMenu'
 import SubMenu from './NavBar/components/SubMenu'
 import Footer from './NavBar/components/Footer'
-import { divide } from 'lodash'
 
 const Routes = ({ dispatch }) => {
     useEffect(() => {
