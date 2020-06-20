@@ -1,10 +1,10 @@
 import * as source from './source'
 
-export function addClassroom () {
+export function addClassroom (createReq) {
     return function (dispactch) {
         dispactch({
             type: 'ADD_CLASSROOM',
-            payload: source.addClassroom(),
+            payload: source.addClassroom(createReq),
         })
     }
 }

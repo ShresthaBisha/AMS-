@@ -1,9 +1,20 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { getAllClassroom } from '../actions'
 
 class ListClassroom extends Component {
     state = {}
 
+    componentDidMount () {
+        console.log('this will run once')
+        this.props.dispatch(getAllClassroom())
+    }
+
     render () {
+        const {classrooms} = this.props.classroomReducer
+
+        console.log('log class rooms', classrooms)
+
         return (
             <div className="container-fullwidth">
                 <div className="py-5 text-center">
@@ -63,4 +74,6 @@ class ListClassroom extends Component {
     }
 }
 
-export default ListClassroom
+export default connect(state => ({
+    classroomReducer: state.classroomReducer
+}))(ListClassroom)
