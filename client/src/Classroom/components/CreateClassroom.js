@@ -20,8 +20,8 @@ class CreateClassroom extends Component {
     createClassroom () {
         const user = getUser()
 
-        const {localStore} = this.state
-        const req = {...localStore, teacher: user._id}
+        const { localStore } = this.state
+        const req = { ...localStore, teacher: user._id }
 
         this.props.dispatch(addClassroom(req))
     }
@@ -73,14 +73,6 @@ class CreateClassroom extends Component {
                                 handler={this.handler.bind(this)}
                                 placeHolder='Description'
                                 className="form-control mb-3"/>
-
-                            <label htmlFor="teacherid">Teacher ID</label>
-                            <MyInput
-                                me='teacherid'
-                                handler={this.handler.bind(this)}
-                                placeHolder='Enter Teacher ID'
-                                className="form-control mb-3"/>
-
 
                             <button
                                 className="btn btn-primary btn-lg btn-block mb-4"
