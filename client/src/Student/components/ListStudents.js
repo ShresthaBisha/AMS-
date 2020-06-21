@@ -1,7 +1,18 @@
 import React, { Component } from 'react'
+import { searchStudent } from '../actions'
+import { connect } from 'react-redux'
 
 class ListStudents extends Component {
-    state = {}
+    state = {
+        localStore: {}
+    }
+
+    componentDidMount () {
+        //need postman ops--for now trying with searchStudents
+        this.props.dispatch(searchStudent())
+        console.log('localstore', this.state.localStore)
+
+    }
 
     render () {
         return (
@@ -63,4 +74,6 @@ class ListStudents extends Component {
     }
 }
 
-export default ListStudents
+export default connect(state => ({
+    // loginReducer: state.loginReducer
+}))(ListStudents)

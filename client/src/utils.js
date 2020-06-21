@@ -12,6 +12,7 @@ const getUser = () => {
     return JSON.parse(storedUser)
 }
 
+
 const getAccessToken = () => get(getUser(), 'token')
 
 const getGroups = () => getArr(getUser(), 'groups')

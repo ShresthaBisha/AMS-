@@ -1,11 +1,11 @@
 import request from '../request'
 
-export const addStudent = auth => {
-    return request.post('users/create', auth)
+export const addStudent = requestParam => {
+    return request.post('users/create', requestParam)
 }
 
-export const searchStudent = auth => {
-    return request.post('users/search', auth)
+export const searchStudent = reqParam => {
+    return request.post('users/search', reqParam)
 }
 
 export const getStudentById = auth => {
