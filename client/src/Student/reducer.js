@@ -20,7 +20,7 @@ const reducer = (state = initialState, action) => {
         case 'SEARCH_STUDENT_PENDING':
             return { ...state, fetchState: 1 }
         case 'SEARCH_STUDENT_FULFILLED':
-            return { ...state, fetchState: 2, student: action.payload.data }
+            return { ...state, fetchState: 2, students: action.payload.data }
         case 'SEARCH_STUDENT_REJECTED':
             return { ...state, fetchState: 3 }
 

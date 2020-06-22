@@ -3,19 +3,22 @@ import { searchStudent } from '../actions'
 import { connect } from 'react-redux'
 
 class ListStudents extends Component {
-    state = {
-        localStore: {}
-    }
 
     componentDidMount () {
         //need postman ops--for now trying with searchStudents
-        this.props.dispatch(searchStudent())
-        console.log('localstore', this.state.localStore)
+        const req = {
+            "status": "ACTIVE",
+            "groups": ["STUDENT"]
+        }
+        console.log('req', req)
+        this.props.dispatch(searchStudent(req))
 
     }
 
     render () {
+        const {students} = this.props.studentReducer
         return (
+
             <div className="container-fullwidth">
                 <div className="py-5 text-center">
                     <img
@@ -54,16 +57,23 @@ class ListStudents extends Component {
                                 <thead>
                                 <tr>
                                     <th>No.</th>
-                                    <th>Name</th>
-                                    <th>Class</th>
+                                    <th>username</th>
+                                    <th>fullname</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>101</td>
-                                    <td>8</td>
-                                </tr>
+                                {
+                                    students.map((student) => {
+                                        console.log('log stu info', student)
+                                        return (
+                                            <tr>
+                                                <td>1</td>
+                                                <td>{student.username}</td>
+                                                <td>{student.fullName}</td>
+                                            </tr>
+                                        )
+                                    })
+                                }
                                 </tbody>
                             </table>
                         </div>
@@ -75,5 +85,5 @@ class ListStudents extends Component {
 }
 
 export default connect(state => ({
-    // loginReducer: state.loginReducer
+    studentReducer: state.studentReducer
 }))(ListStudents)
