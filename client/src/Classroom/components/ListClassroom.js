@@ -1,9 +1,22 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { getAllClassroom } from '../actions'
 
 class ListClassroom extends Component {
     state = {}
 
+    componentDidMount () {
+        console.log('this will run once')
+        this.props.dispatch(getAllClassroom())
+    }
+
     render () {
+        const {classrooms} = this.props.classroomReducer
+
+        console.log('log class rooms', classrooms)
+
+
+
         return (
             <div className="container-fullwidth">
                 <div className="py-5 text-center">
@@ -41,18 +54,25 @@ class ListClassroom extends Component {
                                 <thead>
                                 <tr>
                                     <th>No.</th>
-                                    <th>Teacher ID</th>
+                                    <th>Teacher</th>
                                     <th>Grade</th>
                                     <th>Section</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>101</td>
-                                    <td>8</td>
-                                    <td>A</td>
-                                </tr>
+                                {
+                                    classrooms.map((classroom) => {
+                                        console.log('log room', classroom)
+                                        return (
+                                            <tr>
+                                                <td>1</td>
+                                                <td>{classroom.teacher.fullName}</td>
+                                                <td>{classroom.grade}</td>
+                                                <td>{classroom.section}</td>
+                                            </tr>
+                                        )
+                                    })
+                                }
                                 </tbody>
                             </table>
                         </div>
@@ -63,4 +83,6 @@ class ListClassroom extends Component {
     }
 }
 
-export default ListClassroom
+export default connect(state => ({
+    classroomReducer: state.classroomReducer
+}))(ListClassroom)

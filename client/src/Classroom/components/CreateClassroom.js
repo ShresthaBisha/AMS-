@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addClassroomAction } from '../actions'
+import { addClassroom } from '../actions'
 import MyInput from 'my-input-react'
+import { getUser } from '../../utils'
 
 class CreateClassroom extends Component {
 
@@ -17,8 +18,12 @@ class CreateClassroom extends Component {
     }
 
     createClassroom () {
-        console.log('log classroom', this.state.localStore)
-        // fire api call
+        const user = getUser()
+
+        const { localStore } = this.state
+        const req = { ...localStore, teacher: user._id }
+
+        this.props.dispatch(addClassroom(req))
     }
 
     render () {
@@ -69,14 +74,6 @@ class CreateClassroom extends Component {
                                 placeHolder='Description'
                                 className="form-control mb-3"/>
 
-                            <label htmlFor="teacherid">Teacher ID</label>
-                            <MyInput
-                                me='teacherid'
-                                handler={this.handler.bind(this)}
-                                placeHolder='Enter Teacher ID'
-                                className="form-control mb-3"/>
-
-
                             <button
                                 className="btn btn-primary btn-lg btn-block mb-4"
                                 type="submit"
@@ -93,4 +90,6 @@ class CreateClassroom extends Component {
     }
 }
 
-export default CreateClassroom
+export default connect(state => ({
+    // loginReducer: state.loginReducer
+}))(CreateClassroom)

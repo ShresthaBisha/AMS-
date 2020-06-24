@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import MyInput from 'my-input-react'
+import { addStudent } from '../actions'
+import { connect } from 'react-redux'
 
 class AddStudents extends Component {
 
@@ -16,10 +18,15 @@ class AddStudents extends Component {
     }
 
     createStudent () {
-        console.log('log student', this.state.localStore)
+        //console.log('log student', this.state.localStore)
+        const { localStore } = this.state
+        const req = { ...localStore, status: 'ACTIVE', groups: ['STUDENT'] }
+        //console.log('log request list', req)
+        this.props.dispatch(addStudent(req))
     }
 
     render () {
+        const { localStore } = this.state
         return (
             <div className="container-fullwidth">
                 <div className="container">
@@ -42,18 +49,25 @@ class AddStudents extends Component {
                         <div className="col-md-8 order-md-2">
                             <h4 className="mb-3">Student Info:</h4>
                             <br/>
-                            <label htmlFor="studentname">Student Name</label>
+                            <label htmlFor="username">Username</label>
                             <MyInput
-                                me='studentname'
+                                me='username'
                                 handler={this.handler.bind(this)}
-                                placeHolder='Enter name of student'
+                                placeHolder='Enter Username for student'
                                 className="form-control mb-3"/>
 
-                            <label htmlFor="grade">Grade</label>
+                            <label htmlFor="password">Password</label>
                             <MyInput
-                                me='grade'
+                                me='password'
                                 handler={this.handler.bind(this)}
-                                placeHolder='Enter grade'
+                                placeHolder='Enter password'
+                                className="form-control mb-3"/>
+
+                            <label htmlFor="fullName">Fullname</label>
+                            <MyInput
+                                me='fullName'
+                                handler={this.handler.bind(this)}
+                                placeHolder='Enter Full Name '
                                 className="form-control mb-3"/>
 
                             <hr className="mb-4"/>
@@ -71,4 +85,6 @@ class AddStudents extends Component {
     }
 }
 
-export default AddStudents
+export default connect(state => ({
+    // loginReducer: state.loginReducer
+}))(AddStudents)
