@@ -10,5 +10,6 @@ router.get('/read/:id', auth , controller.getMeetingById)
 //router.put('/:id/update', controller.meeting_update)
 //router.delete('/:id/delete', controller.meeting_delete)
 router.get('/read', [auth, teacher], controller.getAllMeetings)
-
+router.post('/student/search', auth, controller.searchMeetingsByStudent)
+router.post('/teacher/search', [auth, teacher], controller.searchMeetingsByTeacher)
 module.exports = router

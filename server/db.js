@@ -21,5 +21,5 @@ exports.connectToDatabase =mongoose.connect(url).then( function() {
   console.log('MongoDB is connected');
 })
   .catch( function(err) {
-  console.log('MongoDB is not connected');
+  console.log('Hello');
 });

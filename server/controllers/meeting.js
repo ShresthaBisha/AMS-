@@ -5,6 +5,7 @@ const teacher = require('../middleware/teacher')
 
 const { Meeting, validate } = require('../models/meeting');
 const { endsWith } = require('lodash');
+const { Student } = require('../models/student');
 
 // std js with tab index of 4
 
@@ -46,3 +47,28 @@ exports.meeting_delete=async (req,res)=>{
     res.send(deleted_meeting)
 }
 */
+
+exports.searchMeetingsByStudent=async (req,res)=>{
+    const meetingReq=req.body
+    const { userid } = meetingReq
+    let student=await Student.find({
+        "user":userid
+    },{
+        "classroom":1
+    });
+    const classroom  = student[0]["classroom"]
+    meetings= await Meeting.find({
+        "classroom":classroom
+    }).populate(['classroom','lecture','teacher'])
+    res.send(meetings);
+}
+
+exports.searchMeetingsByTeacher=async (req,res)=>{
+    const meetingReq=req.body
+    const { userid } = meetingReq
+    
+    meetings= await Meeting.find({
+        "teacher":userid
+    }).populate(['classroom','lecture','teacher'])
+    res.send(meetings);
+}

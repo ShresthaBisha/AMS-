@@ -191,18 +191,31 @@
 					"name": "get all classrooms",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdGF0dXMiOiJBQ1RJVkUiLCJncm91cHMiOlsiVEVBQ0hFUiJdLCJfaWQiOiI1ZWU0NThmZDAwZmUwZTMyYjhlMmY0YzciLCJ1c2VybmFtZSI6InRlYV8wMDEiLCJpYXQiOjE1OTIzOTI5OTh9.qiATeh0TemetTycQAvVSpc0NP_lRn6Mavz_c0RIZozs",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://localhost:4000/api/classrooms/",
+							"raw": "http://localhost:8080/api/classrooms/read",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "4000",
+							"port": "8080",
 							"path": [
 								"api",
 								"classrooms",
-								""
+								"read"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
 							]
 						}
 					},
@@ -469,6 +482,89 @@
 								"api",
 								"auth",
 								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "student",
+			"item": [
+				{
+					"name": "Create a student",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdGF0dXMiOiJBQ1RJVkUiLCJncm91cHMiOlsiVEVBQ0hFUiJdLCJfaWQiOiI1ZWU0NThmZDAwZmUwZTMyYjhlMmY0YzciLCJ1c2VybmFtZSI6InRlYV8wMDEiLCJpYXQiOjE1OTIzOTI5OTh9.qiATeh0TemetTycQAvVSpc0NP_lRn6Mavz_c0RIZozs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user\":\"5ee458fd00fe0e32b8e2f4c7\",\r\n    \"classroom\":\"5ee454d1e777062dd82ba898\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/students/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"students",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "search a user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdGF0dXMiOiJBQ1RJVkUiLCJncm91cHMiOlsiVEVBQ0hFUiJdLCJfaWQiOiI1ZWY1ZmFjMjE5ZDY3NDFjY2RjOWNmZmEiLCJ1c2VybmFtZSI6InRlYV8wMDEiLCJpYXQiOjE1OTMxNzg4MzF9.H5h2xNUdirBTZfWAlt-C5UkKc4wQmtYizyYmqtOLN-U",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"001\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/users/search",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"search"
 							]
 						}
 					},
