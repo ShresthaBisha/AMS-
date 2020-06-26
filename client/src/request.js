@@ -3,15 +3,15 @@ import { getAccessToken } from './utils'
 
 const accessToken = getAccessToken()
 const url = {
-    base: 'http://localhost:4000/api/'
+    base: 'http://localhost:4000/api/',
 }
 
 const headers = {
     headers: {
         'Content-Type': 'application/json;charset=UTF-8',
         'Access-Control-Allow-Origin': '*',
-        'token': accessToken
-    }
+        token: accessToken,
+    },
 }
 
 // const axiosFormDataConfig = {

@@ -1,0 +1,87 @@
+{
+    "TEACHER": {
+        "student": {
+            "url": "/student",
+            "name": "Students",
+            "menu": [
+                {
+                    "name": "Create Student",
+                    "permission": "CREATE_STUDENT_PERMISSION",
+                    "url": "/student/create"
+                },
+                {
+                    "name": "View Students",
+                    "permission": "VIEW_STUDENT_PERMISSION",
+                    "url": "/student/list"
+                }
+            ]
+        },
+        "class-room": {
+            "url": "/class-room",
+            "name": "Classroom",
+            "menu": [
+                {
+                    "name": "Create Classroom",
+                    "permission": "CREATE_CLASSROOM_PERMISSION",
+                    "url": "/class-room/create"
+                },
+                {
+                    "name": "View Classroom",
+                    "permission": "VIEW_CLASSROOM_PERMISSION",
+                    "url": "/class-room/list"
+                }
+            ]
+        },
+        "meeting": {
+            "url": "/meeting",
+            "name": "Meeting",
+            "menu": [
+                {
+                    "name": "Create meeting",
+                    "permission": "CREATE_MEETING_PERMISSION",
+                    "url": "/meeting/create"
+                },
+                {
+                    "name": "View meeting",
+                    "permission": "VIEW_MEETING_PERMISSION",
+                    "url": "/meeting/list"
+                }
+            ]
+        }
+    },
+    "STUDENT": {
+        "student": {
+            "url": "/student",
+            "name": "Students",
+            "menu": [
+                {
+                    "name": "View Student",
+                    "permission": "VIEW_STUDENT_PERMISSION",
+                    "url": "/student/list"
+                }
+            ]
+        },
+        "class-room": {
+            "url": "/class-room",
+            "name": "Classroom",
+            "menu": [
+                {
+                    "name": "View Classroom",
+                    "permission": "VIEW_CLASSROOM_PERMISSION",
+                    "url": "/class-room/list"
+                }
+            ]
+        },
+        "meeting": {
+            "url": "/meeting",
+            "name": "Meeting",
+            "menu": [
+                {
+                    "name": "View Meetings",
+                    "permission": "VIEW_MEETING_PERMISSION",
+                    "url": "/meeting/list"
+                }
+            ]
+        }
+    }
+}
