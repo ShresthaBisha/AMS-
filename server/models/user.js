@@ -64,6 +64,7 @@ function validateAuthUser (user) {
 
 function validateSearchUser (user) {
     const schema = {
+        username: Joi.string().min(2).max(50),
         status: Joi.string().valid('INITIAL', 'ACTIVE', 'SUSPEND'),
         groups: Joi.array().items(Joi.string().valid('STUDENT', 'TEACHER')),
     }

@@ -26,8 +26,14 @@ exports.createUser = async (req, res) => {
 exports.searchUsers = async (req, res) => {
     const { error, value: searchReq } = validateSearchUser(req.body)
     if (error) res.status(400).send(error.details[0].message)
-
-    const users = await User.find(searchReq)
+    //const {username,status,groups} = searchReq
+    const {username} = searchReq
+    if(username){
+        users=await User.find({...searchReq,username:{ $regex: username, $options: 'i' }})
+    }
+    else{
+        users = await User.find(searchReq)
+    }
     res.send(users)
 }
 
