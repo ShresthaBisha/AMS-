@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "98514e8c-f55b-479d-a1d5-55b0bc4202b2",
+		"_postman_id": "a9bfbc79-a2f8-4789-a87a-4e1ce0f639ff",
 		"name": "ams",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -32,12 +32,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:4000/api/books/",
-							"protocol": "http",
+							"raw": "https://api.ams.everestwalk.com/api/books/",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"api",
+								"ams",
+								"everestwalk",
+								"com"
 							],
-							"port": "4000",
 							"path": [
 								"api",
 								"books",
@@ -62,12 +64,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:4000/api/books/create",
-							"protocol": "http",
+							"raw": "https://api.ams.everestwalk.com/api/books/create",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"api",
+								"ams",
+								"everestwalk",
+								"com"
 							],
-							"port": "4000",
 							"path": [
 								"api",
 								"books",
@@ -87,10 +91,16 @@
 					"name": "Create classroom",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdGF0dXMiOiJBQ1RJVkUiLCJncm91cHMiOlsiVEVBQ0hFUiJdLCJfaWQiOiI1ZWY2YmJlNjI1ZjgzNTVkMTk1YTRkNTQiLCJ1c2VybmFtZSI6InRlYV8wMDEiLCJpYXQiOjE1OTMyMzE2NzB9.tzxjtUKFpGxwq3b7cpXf6lKZJ9Uu0vLAgT5cw4YDXvI",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"grade\":\"2\",\r\n    \"section\":\"B\",\r\n    \"description\":\"This is 2-B\",\r\n    \"classteacherid\":\"11111\"\r\n}",
+							"raw": "{\r\n    \"grade\":\"2\",\r\n    \"section\":\"B\",\r\n    \"description\":\"This is 2-B\",\r\n    \"teacher\":\"5ef6bbe625f8355d195a4d54\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -98,12 +108,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:4000/api/classrooms/create",
-							"protocol": "http",
+							"raw": "https://api.ams.everestwalk.com/api/classrooms/create",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"api",
+								"ams",
+								"everestwalk",
+								"com"
 							],
-							"port": "4000",
 							"path": [
 								"api",
 								"classrooms",
@@ -117,18 +129,27 @@
 					"name": "Get a classroom detail",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdGF0dXMiOiJBQ1RJVkUiLCJncm91cHMiOlsiVEVBQ0hFUiJdLCJfaWQiOiI1ZWY2YmJlNjI1ZjgzNTVkMTk1YTRkNTQiLCJ1c2VybmFtZSI6InRlYV8wMDEiLCJpYXQiOjE1OTMyMzE2NzB9.tzxjtUKFpGxwq3b7cpXf6lKZJ9Uu0vLAgT5cw4YDXvI",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://localhost:4000/api/classrooms/5ededf8815518341543fffe8",
-							"protocol": "http",
+							"raw": "https://api.ams.everestwalk.com/api/classrooms/read/5ef6ca8ac629895c6c1259ea",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"api",
+								"ams",
+								"everestwalk",
+								"com"
 							],
-							"port": "4000",
 							"path": [
 								"api",
 								"classrooms",
-								"5ededf8815518341543fffe8"
+								"read",
+								"5ef6ca8ac629895c6c1259ea"
 							]
 						}
 					},
@@ -149,16 +170,18 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:4000/api/classrooms/5edeee65807c6725682d190d/update",
-							"protocol": "http",
+							"raw": "https://api.ams.everestwalk.com/api/classrooms/5ef6ca8ac629895c6c1259ea/update",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"api",
+								"ams",
+								"everestwalk",
+								"com"
 							],
-							"port": "4000",
 							"path": [
 								"api",
 								"classrooms",
-								"5edeee65807c6725682d190d",
+								"5ef6ca8ac629895c6c1259ea",
 								"update"
 							]
 						}
@@ -171,12 +194,14 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:4000/api/classrooms/5edeee65807c6725682d190d/delete",
-							"protocol": "http",
+							"raw": "https://api.ams.everestwalk.com/api/classrooms/5edeee65807c6725682d190d/delete",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"api",
+								"ams",
+								"everestwalk",
+								"com"
 							],
-							"port": "4000",
 							"path": [
 								"api",
 								"classrooms",
@@ -199,12 +224,14 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8080/api/classrooms/read",
-							"protocol": "http",
+							"raw": "https://api.ams.everestwalk.com/api/classrooms/read",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"api",
+								"ams",
+								"everestwalk",
+								"com"
 							],
-							"port": "8080",
 							"path": [
 								"api",
 								"classrooms",
@@ -231,7 +258,13 @@
 					"name": "Create a meeting",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdGF0dXMiOiJBQ1RJVkUiLCJncm91cHMiOlsiVEVBQ0hFUiJdLCJfaWQiOiI1ZWY2YmJlNjI1ZjgzNTVkMTk1YTRkNTQiLCJ1c2VybmFtZSI6InRlYV8wMDEiLCJpYXQiOjE1OTMyMzM3Njh9.3OQxnhPNgHQ48kp3T0cLX8b_NG5O0HivQKtQYpMKxlI",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n    \"classroom\":\"5ee454d1e777062dd82ba898\",\r\n    \"lecture\":\"5ee45bc1d72bbc24389eda44\",\r\n    \"teacher\":\"5ee458ff00fe0e32b8e2f4c8\",\r\n    \"scheduleinfo\": [\"2020/10/1\", \"10:00 AM\",\"11:00 AM\"],\r\n    \"link\":\"testing\"\r\n}",
@@ -242,12 +275,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:4000/api/meetings/create",
-							"protocol": "http",
+							"raw": "https://api.ams.everestwalk.com/api/meetings/create",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"api",
+								"ams",
+								"everestwalk",
+								"com"
 							],
-							"port": "4000",
 							"path": [
 								"api",
 								"meetings",
@@ -261,14 +296,22 @@
 					"name": "get all meetings",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdGF0dXMiOiJBQ1RJVkUiLCJncm91cHMiOlsiVEVBQ0hFUiJdLCJfaWQiOiI1ZWY2YmJlNjI1ZjgzNTVkMTk1YTRkNTQiLCJ1c2VybmFtZSI6InRlYV8wMDEiLCJpYXQiOjE1OTMyMzM3Njh9.3OQxnhPNgHQ48kp3T0cLX8b_NG5O0HivQKtQYpMKxlI",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://localhost:4000/api/meetings/read",
-							"protocol": "http",
+							"raw": "https://api.ams.everestwalk.com/api/meetings/read",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"api",
+								"ams",
+								"everestwalk",
+								"com"
 							],
-							"port": "4000",
 							"path": [
 								"api",
 								"meetings",
@@ -282,18 +325,27 @@
 					"name": "get a meeting detail",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdGF0dXMiOiJBQ1RJVkUiLCJncm91cHMiOlsiVEVBQ0hFUiJdLCJfaWQiOiI1ZWY2YmJlNjI1ZjgzNTVkMTk1YTRkNTQiLCJ1c2VybmFtZSI6InRlYV8wMDEiLCJpYXQiOjE1OTMyMzM3Njh9.3OQxnhPNgHQ48kp3T0cLX8b_NG5O0HivQKtQYpMKxlI",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://localhost:4000/api/meetings/5edef68542078c4a3cd12510/",
-							"protocol": "http",
+							"raw": "https://api.ams.everestwalk.com/api/meetings/read/5ef6d18ec629895c6c1259eb/",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"api",
+								"ams",
+								"everestwalk",
+								"com"
 							],
-							"port": "4000",
 							"path": [
 								"api",
 								"meetings",
-								"5edef68542078c4a3cd12510",
+								"read",
+								"5ef6d18ec629895c6c1259eb",
 								""
 							]
 						}
@@ -380,12 +432,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:4000/api/lectures/create",
-							"protocol": "http",
+							"raw": "https://api.ams.everestwalk.com/api/lectures/create",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"api",
+								"ams",
+								"everestwalk",
+								"com"
 							],
-							"port": "4000",
 							"path": [
 								"api",
 								"lectures",
@@ -407,12 +461,14 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:4000/api/lectures/read",
-							"protocol": "http",
+							"raw": "https://api.ams.everestwalk.com/api/lectures/read",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"api",
+								"ams",
+								"everestwalk",
+								"com"
 							],
-							"port": "4000",
 							"path": [
 								"api",
 								"lectures",
@@ -434,17 +490,19 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:4000/api/lectures/read/5ee45bc1d72bbc24389eda44/",
-							"protocol": "http",
+							"raw": "https://api.ams.everestwalk.com/api/lectures/read/5ef6d440c629895c6c1259ec/",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"api",
+								"ams",
+								"everestwalk",
+								"com"
 							],
-							"port": "4000",
 							"path": [
 								"api",
 								"lectures",
 								"read",
-								"5ee45bc1d72bbc24389eda44",
+								"5ef6d440c629895c6c1259ec",
 								""
 							]
 						}
@@ -472,12 +530,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:4000/api/auth/",
-							"protocol": "http",
+							"raw": "https://api.ams.everestwalk.com/api/auth/",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"api",
+								"ams",
+								"everestwalk",
+								"com"
 							],
-							"port": "4000",
 							"path": [
 								"api",
 								"auth",
@@ -514,12 +574,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/students/create",
-							"protocol": "http",
+							"raw": "https://api.ams.everestwalk.com/api/students/create",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"api",
+								"ams",
+								"everestwalk",
+								"com"
 							],
-							"port": "8080",
 							"path": [
 								"api",
 								"students",
@@ -556,11 +618,14 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/api/users/search",
+							"raw": "https://api.ams.everestwalk.com/api/users/search",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"api",
+								"ams",
+								"everestwalk",
+								"com"
 							],
-							"port": "8080",
 							"path": [
 								"api",
 								"users",
