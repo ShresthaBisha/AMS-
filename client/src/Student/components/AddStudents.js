@@ -7,7 +7,6 @@ class AddStudents extends Component {
 
     state = {
         localStore: {}
-
     }
 
     handler (me, value) {

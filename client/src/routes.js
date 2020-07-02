@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { getAccessToken, getUser } from './utils'
+import { getAccessToken, getUser, ProtectedComponents } from './utils'
 
 import { setUser } from './Login/actions'
 
@@ -13,7 +13,6 @@ import Login from './Login/components/Login'
 import MainMenu from './NavBar/components/MainMenu'
 import SubMenu from './NavBar/components/SubMenu'
 import Footer from './NavBar/components/Footer'
-import { divide } from 'lodash'
 
 const Routes = ({ dispatch }) => {
     useEffect(() => {
@@ -26,10 +25,10 @@ const Routes = ({ dispatch }) => {
     return (
         <BrowserRouter>
             <Switch>
-                <Redirect exact from="/" to="/class-room"/>
+                <Redirect exact from="/" to="/login"/>
                 <Route path="/login" component={Login} exact/>
 
-                <div>
+                <ProtectedComponents> // This will redirect all unauthenticated routes to /login
                     <MainMenu/>
                     <SubMenu/>
 
@@ -38,7 +37,7 @@ const Routes = ({ dispatch }) => {
                     <StudentRoutes/>
 
                     <Footer/>
-                </div>
+                </ProtectedComponents>
             </Switch>
         </BrowserRouter>
     )

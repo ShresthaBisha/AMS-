@@ -1,7 +1,7 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Redirect } from 'react-router-dom'
 import { get } from 'lodash'
-import { getPermissions } from '../../utils'
+import { getAccessToken, getPermissions } from '../../utils'
 import { useDispatch } from 'react-redux'
 
 const MainMenu = () => {
@@ -10,7 +10,6 @@ const MainMenu = () => {
     const _logout = () => {
         localStorage.clear()
     }
-
     return (
         <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
             <div className="container d-flex flex-column flex-md-row justify-content-between">

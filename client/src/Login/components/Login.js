@@ -12,7 +12,7 @@ const Login = props => {
 
     useState(() => {
         if (getAccessToken())
-            props.history.push('/')
+            props.history.push('/class-room')
     }, [])
 
     const _login = async () => {
