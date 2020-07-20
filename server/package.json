@@ -15,7 +15,7 @@
     "joi": "^13.1.0",
     "joi-objectid": "3.0.1",
     "mongoose": "^5.0.2",
-    "lodash": "4.17.15",
+    "lodash": "4.17.19",
     "bcrypt": "4.0.1",
     "jsonwebtoken": "8.5.1",
     "dotenv": "8.2.0",
