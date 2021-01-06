@@ -18,7 +18,7 @@
     "redux-promise-middleware": "6.1.2",
     "redux-logger": "3.0.6",
     "react-router-dom": "5.2.0",
-    "axios": "0.19.2",
+    "axios": "0.21.1",
     "lodash": "4.17.15",
     "my-input-react": "0.1.5"
   },
