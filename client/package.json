@@ -19,7 +19,7 @@
     "redux-logger": "3.0.6",
     "react-router-dom": "5.2.0",
     "axios": "0.19.2",
-    "lodash": "4.17.15",
+    "lodash": "4.17.21",
     "my-input-react": "0.1.5"
   },
   "scripts": {
